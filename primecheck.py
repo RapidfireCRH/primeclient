@@ -53,7 +53,7 @@ def checknum(int_to_check):# false is not prime
 	mylist = query("select prime from primes where prime <= {0}".format(sqrt_of_num))
 	for prime in mylist:
 		if(isdiv(prime[0],int_to_check)):
-			return prime[0]
+			return False
 	return True
 
 def checkout(lastendnum):
