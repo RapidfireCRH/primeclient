@@ -29,7 +29,8 @@ def __main__():
         cor = 0
         notcor = 0
         database = db.query("select prime from primes where num between {0} and {1} and DoubleCheck = 0".format((x*10000),((x+1)*10000)))
-        print("{1} - {2}: DB Loading Complete, {0} lines loaded".format(len(database),(x*10000),((x+1)*10000)))
+        curtime = datetime.datetime.now()
+        print("{3}|{1} - {2}: DB Loading Complete, {0} lines loaded".format(len(database),(x*10000),((x+1)*10000),curtime.strftime("%X")))
         for primecheck in database:
                 if(checknum(primecheck)):
                     cor = cor + 1
