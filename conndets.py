@@ -1,4 +1,0 @@
-name = ''
-pswd = ''
-host = ''
-db = ''
