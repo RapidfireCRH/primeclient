@@ -48,7 +48,7 @@ def checkout(lastendnum):
     end = db.query("select max(high) from Checkout")
     end2 = db.query("select max(prime) from onemillion")[0][0]
     if(end is not None and end[0][0] != 0):
-        if(end2 < end):
+        if(end2 < end[0][0]):
             cb = end[0][0]+1
             ce = cb + checkoutnum
             checkoutwrite(cb,ce)
