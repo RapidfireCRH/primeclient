@@ -4,7 +4,7 @@ import mysql.connector
 import socket
 import db
 
-checkoutnum = 100000
+checkoutnum = 1000
 hostname = socket.gethostname()
 
 def checknum(int_to_check):# false is not prime
@@ -46,16 +46,17 @@ def checkout(lastendnum):
     #Val == 0 -> False -> next code
     checkoutwrite(0,0)
     end = db.query("select max(high) from Checkout")
-
+    end2 = db.query("select max(prime) from onemillion")[0][0]
     if(end is not None and end[0][0] != 0):
-        cb = end[0][0]+1
-        ce = cb + checkoutnum
-        checkoutwrite(cb,ce)
-        return cb, ce
+        if(end2 < end):
+            cb = end[0][0]+1
+            ce = cb + checkoutnum
+            checkoutwrite(cb,ce)
+            return cb, ce
 
     #check for highest completed in primes
     #return val, val + checkoutnum
-    cb = db.query("select max(prime) from onemillion")[0][0] + 1
+    cb = end2 + 1
     ce = cb + checkoutnum
     checkoutwrite(cb,ce)
     return cb, ce
