@@ -68,14 +68,14 @@ def __main__():
     currentnum = check_begin - 1
     hostnamenum = db.query("select id from checkout where name = \"{0}\"".format(hostname))[0][0]
     while True:
-        if(db.query("select count(prime) from onemillion")[0][0] == 1000000):
+        if(db.query("select count(prime) from onemillion")[0][0] == 1200000):
             exit()
         currentnum = currentnum + 1
         if(currentnum >= check_end + 1):
             check_begin, check_end = checkout(check_end)
             currentnum = check_begin
+            print("{0}".format(currentnum))
         if(checknum(currentnum)):
             db.insert("insert into onemillion (prime, hostname) values (%s, %s)",(currentnum, hostnamenum))
-            print("{0}: prime".format(currentnum))
 
 __main__()
