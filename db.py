@@ -1,10 +1,10 @@
 import mysql.connector
 
 #Details for db login
-q_username = ''
-q_password = ''
-q_host = ''
-q_database = ''
+q_username = 'writer'
+q_password = 'XZx4RXPayncXvs5W'
+q_host = '192.168.50.200'
+q_database = 'prime'
 
 def query(sql):
 	try:
