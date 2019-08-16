@@ -1,10 +1,10 @@
 import mysql.connector
-
+import conndets
 #Details for db login
-q_username = ''
-q_password = ''
-q_host = ''
-q_database = ''
+q_username = conndets.q_database
+q_password = conndets.q_password
+q_host = conndets.q_host
+q_database = conndets.q_database
 
 def query(sql):
 	try:
